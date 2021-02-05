@@ -12,7 +12,7 @@ class FileUploader
 
         $fileExtesion = strtolower(end($fileParts));
 
-        if (!in_array($fileExtesion, ['jpeg', 'png'])){
+        if (!in_array($fileExtesion, ['jpg', 'png'])){
             throw new Exception('File type not allowed.');
         }
 
