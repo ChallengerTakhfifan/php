@@ -16,7 +16,7 @@ class FileUploader
             throw new Exception('File type not allowed.');
         }
 
-        if (!move_uploaded_file($data['tmp_name'], __DIR__ . '/uploaded_files/' . $name)) {
+        if (!move_uploaded_file($data['tmp_name'], __DIR__ . '/uploaded_files/' . $name . '.' . $fileExtesion)) {
             throw new Exception('Could not upload File');
         }
     }
