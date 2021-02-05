@@ -1,0 +1,21 @@
+version: "3.5"
+services:
+    php:
+        image: 'php:7.4-fpm'
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        container_name: php
+        volumes:
+            - './source:/var/www/html'
+
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        ports:
+            - '17171:80'
+        links:
+            - 'php'
+        volumes:
+            - './source:/var/www/html'
+            - './config/nginx/conf.d:/etc/nginx/conf.d'
